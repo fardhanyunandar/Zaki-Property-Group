@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Zaki Property Group — Mitra properti terpercaya untuk hunian impian dan investasi cerdas. Temukan rumah, ruko, villa, dan properti komersial terbaik di Indonesia." />
+    <meta name="keywords" content="properti surabaya, jual beli rumah, sewa ruko, investasi properti, developer properti, agen properti terpercaya" />
+    <meta property="og:title" content="Zaki Property Group | Building Better Living" />
+    <meta property="og:description" content="Temukan properti impian Anda bersama agen terpercaya. Ribuan listing pilihan, konsultasi gratis." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200" />
+    <title>Zaki Property Group | Building Better Living</title>
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/assets/style.css" />
+
+    <style>
+      /* ── Hero ─────────────────────────────────────────── */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center 30%;
+        filter: brightness(0.35);
+        transform: scale(1.04);
+        transition: transform 8s ease-out;
+      }
+      .hero-bg.loaded {
+        transform: scale(1);
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(5, 13, 26, 0.7) 0%, rgba(15, 23, 42, 0.3) 50%, rgba(5, 13, 26, 0.65) 100%);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 120px 1.5rem 5rem;
+        width: 100%;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 16px;
+        background: rgba(217, 119, 6, 0.15);
+        border: 1px solid rgba(217, 119, 6, 0.3);
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold-400);
+        margin-bottom: 1.75rem;
+        animation: fadeInDown 0.8s ease both;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--gold-500);
+        border-radius: 50%;
+        animation: blink 2s ease-in-out infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+      .hero h1 {
+        max-width: 760px;
+        margin-bottom: 1.5rem;
+        animation: fadeInUp 0.8s ease 0.15s both;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold-400);
+      }
+      .hero-sub {
+        max-width: 560px;
+        font-size: 1.1rem;
+        color: var(--slate-300);
+        line-height: 1.75;
+        margin-bottom: 2.5rem;
+        animation: fadeInUp 0.8s ease 0.3s both;
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        animation: fadeInUp 0.8s ease 0.45s both;
+      }
+      .hero-stats {
+        position: absolute;
+        bottom: 3rem;
+        right: 3rem;
+        display: flex;
+        gap: 2rem;
+        z-index: 2;
+        animation: fadeIn 1s ease 0.8s both;
+      }
+      .stat-item {
+        text-align: center;
+        padding: 1rem 1.5rem;
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-md);
+      }
+      .stat-num {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gold-400);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--slate-400);
+        margin-top: 4px;
+        letter-spacing: 0.05em;
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* ── Quick Search ──────────────────────────────────── */
+      .quick-search-wrap {
+        padding: 0 1.5rem;
+        margin-top: -2.5rem;
+        position: relative;
+        z-index: 10;
+      }
+      .quick-search-box {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 2.5rem;
+        border-radius: var(--radius-lg);
+      }
+      .quick-search-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        color: var(--white);
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .quick-search-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .search-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.2fr 1fr auto;
+        gap: 1rem;
+        align-items: end;
+      }
+      .price-slider-wrap input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        height: 4px;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.15);
+        outline: none;
+        margin-top: 8px;
+      }
+      .price-slider-wrap input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--gold-600);
+        cursor: pointer;
+        border: 2px solid var(--navy-900);
+        box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.3);
+      }
+      .price-display {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--gold-400);
+        margin-top: 6px;
+      }
+
+      /* ── Featured Section ──────────────────────────────── */
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.75rem;
+      }
+      .featured-card-highlight {
+        grid-column: span 1;
+        position: relative;
+      }
+
+      /* ── Why Choose ────────────────────────────────────── */
+      .why-bg {
+        background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%);
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+      .why-card {
+        padding: 2rem 1.5rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.02);
+        transition: all var(--transition-base);
+        text-align: center;
+      }
+      .why-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(217, 119, 6, 0.2);
+        transform: translateY(-4px);
+      }
+      .why-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(217, 119, 6, 0.05));
+        border: 1px solid rgba(217, 119, 6, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.25rem;
+        color: var(--gold-500);
+      }
+      .why-card h4 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+        font-family: var(--font-display);
+      }
+      .why-card p {
+        font-size: 0.875rem;
+        color: var(--slate-400);
+        line-height: 1.65;
+      }
+
+      /* ── CTA Banner ────────────────────────────────────── */
+      .cta-banner {
+        margin: 0 1.5rem;
+        border-radius: var(--radius-xl);
+        padding: 4rem 3rem;
+        background: linear-gradient(135deg, var(--gold-700) 0%, var(--gold-600) 50%, #c2690a 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-banner::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .cta-banner::after {
+        content: "";
+        position: absolute;
+        bottom: -60%;
+        right: 15%;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .cta-banner-inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .cta-banner h2 {
+        color: var(--white);
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+      }
+      .cta-banner p {
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 0.5rem;
+        font-size: 1rem;
+      }
+      .btn-white {
+        background: var(--white);
+        color: var(--gold-700);
+        font-weight: 600;
+      }
+      .btn-white:hover {
+        background: rgba(255, 255, 255, 0.92);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 1024px) {
+        .featured-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .why-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero-stats {
+          display: none;
+        }
+        .search-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .search-grid > *:last-child {
+          grid-column: span 2;
+        }
+      }
+      @media (max-width: 640px) {
+        .featured-grid {
+          grid-template-columns: 1fr;
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+        .search-grid {
+          grid-template-columns: 1fr;
+        }
+        .search-grid > *:last-child {
+          grid-column: span 1;
+        }
+        .quick-search-box {
+          padding: 1.5rem;
+        }
+        .cta-banner {
+          padding: 2.5rem 1.5rem;
+          margin: 0;
+          border-radius: 0;
+        }
+        .cta-banner-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+  /* Base Style untuk Semua Ikon */
+  .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Efek Ukuran SVG di dalam Lingkaran */
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s ease;
+    z-index: 2;
+  }
+
+  /* Efek Hover Universal (Angkat ke atas + Bayangan bayangan nyata) */
+  .social-icon:hover {
+    transform: translateY(-5px);
+    color: #ffffff;
+  }
+
+  .social-icon:hover svg {
+    transform: scale(1.2);
+  }
+
+  /* --- KUSTOMISASI WARNA REAL BRAND SAAT HOVER --- */
+
+  /* Instagram: Gradien Senja */
+  .social-icon.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0 6px 20px rgba(214, 36, 159, 0.5);
+  }
+
+  /* WhatsApp: Hijau Khas WA */
+  .social-icon.whatsapp:hover {
+    background: #25D366;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAVBAR ────────────────────────────────────────────── -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-main">Zaki Property Group</span>
+          <span class="logo-sub">Building Better Living</span>
+        </a>
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link active">Beranda</a>
+          <a href="catalog.html" class="nav-link">Katalog</a>
+          <a href="services.html" class="nav-link">Layanan</a>
+          <a href="about.html" class="nav-link">Tentang</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Kontak</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <a href="contact.html" class="btn btn-gold nav-cta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            Konsultasi Gratis
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html" class="nav-link active">Beranda</a>
+      <a href="catalog.html" class="nav-link">Katalog</a>
+      <a href="services.html" class="nav-link">Layanan</a>
+      <a href="about.html" class="nav-link">Tentang</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Kontak</a>
+      <a href="contact.html" class="btn btn-gold">Konsultasi Gratis</a>
+    </div>
+
+    <!-- ── HERO SECTION ──────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-bg" id="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">✦ Dipercaya Lebih dari 1.200 Keluarga Indonesia</div>
+        <h1>
+          Temukan Hunian <em>Impian</em> Anda,<br />
+          Wujudkan Investasi yang Nyata
+        </h1>
+        <p class="hero-sub">Lebih dari 14 tahun Zaki Property Group hadir sebagai mitra strategis dalam setiap perjalanan properti Anda — dari pencarian, negosiasi, hingga serah terima kunci. Legalitas terjamin, harga transparan.</p>
+        <div class="hero-ctas">
+          <a href="catalog.html" class="btn btn-gold" style="font-size: 0.95rem; padding: 14px 32px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <path stroke-linecap="round" d="M21 21l-4.35-4.35" />
+            </svg>
+            Cari Properti
+          </a>
+          <a href="contact.html" class="btn btn-outline" style="font-size: 0.95rem; padding: 14px 32px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            Hubungi Kami
+          </a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">1.2K+</div>
+          <div class="stat-label">Transaksi Sukses</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Kepuasan Klien</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">14th</div>
+          <div class="stat-label">Tahun Pengalaman</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Kota Cakupan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── QUICK SEARCH ───────────────────────────────────────── -->
+    <div class="quick-search-wrap">
+      <div class="quick-search-box glass">
+        <div class="quick-search-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--gold-500)" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path stroke-linecap="round" d="M21 21l-4.35-4.35" />
+          </svg>
+          Cari Properti Impian Anda
+        </div>
+        <form id="quick-search-form" novalidate>
+          <div class="search-grid">
+            <div class="form-group">
+              <label class="form-label">Jenis Transaksi</label>
+              <select name="transaksi" class="form-input form-select">
+                <option value="">Semua</option>
+                <option value="beli">Beli / KPR</option>
+                <option value="sewa">Sewa / Kontrak</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Lokasi Kota</label>
+              <select name="lokasi" class="form-input form-select">
+                <option value="">Pilih Kota</option>
+                <option>Surabaya</option>
+                <option>Jakarta</option>
+                <option>Bandung</option>
+                <option>Bali</option>
+                <option>Malang</option>
+                <option>Semarang</option>
+                <option>Yogyakarta</option>
+              </select>
+            </div>
+            <div class="form-group price-slider-wrap">
+              <label class="form-label">Harga Maksimum</label>
+              <input type="range" id="price-slider" name="harga_max" min="0" max="4" value="2" />
+              <div class="price-display" id="price-display">Rp 2 M</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tipe Properti</label>
+              <select name="tipe" class="form-input form-select">
+                <option value="">Semua Tipe</option>
+                <option>Rumah Tinggal</option>
+                <option>Apartemen</option>
+                <option>Villa</option>
+                <option>Ruko / Komersial</option>
+                <option>Tanah</option>
+                <option>Gudang</option>
+              </select>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-gold" style="width: 100%; justify-content: center; padding: 14px 24px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <path stroke-linecap="round" d="M21 21l-4.35-4.35" />
+                </svg>
+                Cari Sekarang
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ── FEATURED PROPERTIES ────────────────────────────────── -->
+    <section class="section" style="padding-top: 5rem">
+      <div class="container">
+        <div class="reveal" style="text-align: center; margin-bottom: 3rem">
+          <div class="section-label" style="justify-content: center">Pilihan Terbaik</div>
+          <h2>Properti Unggulan <em style="font-style: italic; color: var(--gold-400)">Pilihan Kami</em></h2>
+          <div class="divider" style="margin: 1rem auto 1.25rem"></div>
+          <p style="max-width: 500px; margin: 0 auto; color: var(--slate-400)">Dikurasi secara cermat oleh tim konsultan berpengalaman kami — properti berkualitas tinggi dengan nilai investasi terbaik.</p>
+        </div>
+
+        <div class="featured-grid">
+          <!-- Card 1 -->
+          <div class="prop-card reveal reveal-delay-1">
+            <div class="prop-card-img">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Villa Modern Citraland" loading="lazy" />
+              <span class="prop-badge badge-jual">Dijual</span>
+              <span class="prop-badge badge-baru" style="left: auto; right: 14px">Baru</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Citraland, Surabaya Barat
+              </div>
+              <div class="prop-title">Villa Modern Citraland Premium</div>
+              <div class="prop-price">Rp 4,5 M <span>/ unit</span></div>
+              <div class="prop-specs">
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  4 KT
+                </div>
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  3 KM
+                </div>
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                  280 m²
+                </div>
+              </div>
+              <a href="catalog.html#detail-1" class="btn btn-ghost" style="width: 100%; justify-content: center">Lihat Detail →</a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="prop-card reveal reveal-delay-2">
+            <div class="prop-card-img">
+              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" alt="Rumah Pakuwon Indah" loading="lazy" />
+              <span class="prop-badge badge-jual">Dijual</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Pakuwon Indah, Surabaya
+              </div>
+              <div class="prop-title">Rumah Cluster Pakuwon Indah Type 200</div>
+              <div class="prop-price">Rp 2,8 M <span>/ unit</span></div>
+              <div class="prop-specs">
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  3 KT
+                </div>
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  2 KM
+                </div>
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                  200 m²
+                </div>
+              </div>
+              <a href="catalog.html#detail-2" class="btn btn-ghost" style="width: 100%; justify-content: center">Lihat Detail →</a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="prop-card reveal reveal-delay-3">
+            <div class="prop-card-img">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Apartemen Puncak Bukit" loading="lazy" />
+              <span class="prop-badge badge-sewa">Disewa</span>
+            </div>
+            <div class="prop-body">
+              <div class="prop-location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Puncak Bukit Golf, Surabaya
+              </div>
+              <div class="prop-title">Apartemen Studio Premium Puncak Bukit</div>
+              <div class="prop-price">Rp 6,5 Jt <span>/ bulan</span></div>
+              <div class="prop-specs">
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  1 KT
+                </div>
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  1 KM
+                </div>
+                <div class="spec-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                  48 m²
+                </div>
+              </div>
+              <a href="catalog.html#detail-3" class="btn btn-ghost" style="width: 100%; justify-content: center">Lihat Detail →</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem" class="reveal">
+          <a href="catalog.html" class="btn btn-outline" style="font-size: 0.9rem; padding: 13px 32px"> Lihat Semua Properti → </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHY CHOOSE US ──────────────────────────────────────── -->
+    <section class="section why-bg">
+      <div class="container">
+        <div class="reveal" style="text-align: center; margin-bottom: 3.5rem">
+          <div class="section-label" style="justify-content: center">Keunggulan Kami</div>
+          <h2>Mengapa Memilih <em style="font-style: italic; color: var(--gold-400)">Zaki Property?</em></h2>
+          <div class="divider" style="margin: 1rem auto 1.25rem"></div>
+          <p style="max-width: 500px; margin: 0 auto; color: var(--slate-400)">Empat pilar yang menjadi fondasi kepercayaan ribuan klien kami selama lebih dari satu dekade.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card reveal reveal-delay-1">
+            <div class="why-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h4>Legalitas Terjamin</h4>
+            <p>Setiap properti telah melalui verifikasi dokumen ketat oleh tim legal berpengalaman kami. SHM bersih, IMB/PBG lengkap, bebas sengketa.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-2">
+            <div class="why-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h4>Arsitek Berpengalaman</h4>
+            <p>Tim arsitek dan desainer interior kami memiliki portofolio lebih dari 500 proyek residensial dan komersial premium di seluruh Indonesia.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-3">
+            <div class="why-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h4>Transparansi Finansial</h4>
+            <p>Tidak ada biaya tersembunyi. Komisi agen tercantum jelas di awal, simulasi KPR transparan, dan semua biaya notaris terinci sejak hari pertama.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-4">
+            <div class="why-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h4>Pelayanan Prima</h4>
+            <p>Konsultan personal responsif 7 hari seminggu, after-sale service hingga 12 bulan pasca serah terima, dan layanan purna jual yang proaktif.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BANNER ─────────────────────────────────────────── -->
+    <section class="section-sm">
+      <div class="cta-banner reveal">
+        <div class="cta-banner-inner">
+          <div>
+            <h2>Siap Memulai Perjalanan Properti Anda?</h2>
+            <p>Konsultasi pertama GRATIS — tidak ada komitmen, tidak ada tekanan. Ceritakan kebutuhan Anda.</p>
+          </div>
+          <div style="display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap">
+            <a href="contact.html" class="btn btn-white" style="font-size: 0.95rem; padding: 14px 32px"> Konsultasi Gratis Sekarang → </a>
+            <a href="catalog.html" class="btn" style="background: rgba(255, 255, 255, 0.15); color: white; border: 1px solid rgba(255, 255, 255, 0.3); font-size: 0.95rem; padding: 14px 32px"> Jelajahi Katalog </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" style="display: inline-block; margin-bottom: 1rem">
+              <div style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white)">Zaki Property Group</div>
+              <div style="font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-500)">Building Better Living</div>
+            </a>
+            <p style="margin-bottom: 1.25rem">Mitra properti terpercaya Anda sejak 2010. Ribuan keluarga Indonesia telah mempercayakan investasi properti mereka kepada kami.</p>
+<div class="footer-socials">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/murphhy__/" target="_blank" rel="noopener noreferrer" class="social-icon instagram" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/6283865260933" target="_blank" rel="noopener noreferrer" class="social-icon whatsapp" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.562l.407.241c1.552.922 3.327 1.411 5.143 1.412 5.514 0 10.015-4.502 10.018-10.02.002-2.673-1.04-5.186-2.936-7.085-1.895-1.898-4.414-2.943-7.092-2.944-5.52 0-10.02 4.503-10.023 10.02-.001 1.867.5 3.687 1.448 5.244l.264.44-.997 3.645 3.73-.978zm11.567-7.9c-.31-.154-1.833-.905-2.115-1.008-.283-.103-.488-.155-.693.155-.204.31-.79.155-.969.36-.179.206-.36.232-.67.077-.31-.154-1.307-.481-2.49-1.535-.919-.82-1.54-1.834-1.722-2.143-.18-.31-.019-.477.136-.631.14-.139.31-.36.465-.54.154-.18.206-.31.31-.515.103-.206.052-.387-.026-.54-.077-.154-.693-1.67-.95-2.288-.25-.6-.505-.519-.693-.529-.179-.008-.385-.01-.59-.01-.206 0-.54.077-.822.387-.282.31-1.077 1.056-1.077 2.574 0 1.519 1.104 2.986 1.258 3.193.154.206 2.174 3.32 5.267 4.653.736.317 1.311.507 1.761.65.74.236 1.413.203 1.945.124.593-.088 1.833-.747 2.09-1.469.257-.721.257-1.339.18-1.469-.077-.13-.282-.206-.592-.36z"/>
+    </svg>
+  </a>
+</div>
+          </div>
+          <div class="footer-col">
+            <h5>Navigasi Cepat</h5>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="catalog.html">Katalog Properti</a></li>
+              <li><a href="services.html">Layanan & Harga</a></li>
+              <li><a href="about.html">Tentang Kami</a></li>
+              <li><a href="blog.html">Artikel & Blog</a></li>
+              <li><a href="contact.html">Hubungi Kami</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Kontak & Legal</h5>
+            
+            <!-- Item Alamat -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Puri Aneka Jaya, Jl. Utama Puri BSI Permai, Rangkapan Jaya, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16435</span>
+            </div>
+
+            <!-- Item Telepon (Sudah Ditambahkan Ikon & Dirapikan) -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>+62 838-6526-0933</span>
+            </div>
+
+            <!-- Item Email (Sudah Dirapikan ke Dalam Tag) -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>zakiharahapm@gmail.com</span>
+            </div>
+
+            <!-- Kotak Lisensi Resmi -->
+            <div style="margin-top: 1.2rem; padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.75rem; color: var(--slate-400); line-height: 1.5;">
+              <div style="color: var(--gold-500); font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px;">Lisensi Resmi</div>
+              <div>AREBI No. 001/JATIM/2023</div>
+              <div style="margin-top: 2px;">NIB: 1234567890123</div>
+            </div>
+          </div>
+        <div class="footer-bottom">
+          <p>© 2026 Zaki Property Group. Seluruh hak cipta dilindungi undang-undang.</p>
+          <div style="display: flex; gap: 1.5rem; font-size: 0.8rem; color: var(--navy-600)">
+            <a href="kebijakanprivasi.html">Kebijakan Privasi</a>
+            <a href="syarat&ketentuan.html">Syarat & Ketentuan</a>
+            <a href="sitemap.html">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ── WHATSAPP BUTTON ────────────────────────────────────── -->
+    <a href="https://wa.me/6283865260933?text=Halo%20Zaki%20Property%20Group" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+        />
+      </svg>
+    </a>
+
+    <script src="assets/main.js"></script>
+    <script>
+      // Hero image load animation
+      const heroBg = document.getElementById("hero-bg");
+      if (heroBg) {
+        const img = new Image();
+        img.onload = () => heroBg.classList.add("loaded");
+        img.src = "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80";
+      }
+      // Price slider
+      initPriceSlider("price-slider", "price-display");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peta Situs (Sitemap) Zaki Property Group. Panduan indeks navigasi tautan halaman website kami secara lengkap.">
+  <title>Sitemap | Zaki Property Group</title>
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Integrasi Layout Dasar & Skema Warna untuk Antisipasi Delay CSS */
+    :root {
+      --navy-950: #0b1329;
+      --navy-900: #1c2541;
+      --navy-800: #3a506b;
+      --gold-400: #6fffe9;
+      --white: #ffffff;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --radius-lg: 0.75rem;
+      --radius-md: 0.5rem;
+      --transition-base: 0.3s ease;
+      --transition-fast: 0.2s ease;
+    }
+
+    .sitemap-header {
+      padding: 140px 1.5rem 4rem;
+      background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 4rem auto;
+      max-width: 1200px;
+    }
+    .sitemap-card {
+      background: var(--navy-900);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: transform var(--transition-base), border-color var(--transition-base);
+    }
+    .sitemap-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(111, 255, 233, 0.25);
+    }
+    .sitemap-card h3 {
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-family: sans-serif;
+    }
+    .sitemap-card h3 svg {
+      color: var(--gold-400);
+    }
+    .sitemap-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .sitemap-links a {
+      font-size: 0.9rem;
+      color: var(--slate-300);
+      text-decoration: none;
+      transition: color var(--transition-fast), padding-left var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+    }
+    .sitemap-links a:hover {
+      color: var(--gold-400);
+      padding-left: 6px;
+    }
+
+    /* Gaya Tombol Kembali Premium */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--slate-300);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.02);
+      transition: all var(--transition-fast);
+    }
+    .back-btn:hover {
+      color: var(--white);
+      border-color: var(--gold-400);
+      background: rgba(111, 255, 233, 0.05);
+    }
+    .back-btn svg {
+      transition: transform var(--transition-fast);
+    }
+    .back-btn:hover svg {
+      transform: translateX(-4px);
+    }
+  </style>
+</head>
+<body style="background-color: var(--navy-950); margin: 0; font-family: sans-serif;">
+
+<!-- NAVBAR (Hanya Tombol Kembali) -->
+<nav id="navbar" style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(11, 19, 41, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05);">
+  <div class="nav-inner" style="max-width: 1200px; margin: 0 auto; padding: 1.2rem 1.5rem; display: flex; justify-content: flex-start; align-items: center;">
+    <a href="index.html" class="back-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      <span>Kembali ke Beranda</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="sitemap-header">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+    <div class="section-label" style="color: var(--gold-400); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem;">Indeks Halaman</div>
+    <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-top: 0.5rem; color: var(--white); font-weight: 700; margin-bottom: 0;">Peta Situs <em style="font-style:italic; color:var(--gold-400); font-family: serif;">Sitemap</em></h1>
+    <p style="color:var(--slate-400); max-width:500px; margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.6;">Navigasi menyeluruh untuk mempermudah pencarian seluruh berkas informasi dan direktori layanan di website kami.</p>
+  </div>
+</div>
+
+<!-- SITEMAP GRID -->
+<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+  <div class="sitemap-grid">
+    
+    <!-- Utama -->
+    <div class="sitemap-card reveal">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Halaman Utama
+      </h3>
+      <ul class="sitemap-links">
+        <li><a href="index.html">Beranda Utama</a></li>
+        <li><a href="about.html">Tentang Zaki Property</a></li>
+        <li><a href="services.html">Layanan & Harga Paket</a></li>
+        <li><a href="contact.html">Kontak & Lokasi Kantor</a></li>
+      </ul>
+    </div>
+
+    <!-- Properti -->
+    <div class="sitemap-card reveal reveal-delay-1">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        Katalog Properti
+      </h3>
+      <ul class="sitemap-links">
+        <li><a href="catalog.html">Semua Properti</a></li>
+        <li><a href="catalog.html?type=villa">Residensial & Villa Mewah</a></li>
+        <li><a href="catalog.html?type=komersial">Ruko & Aset Komersial</a></li>
+        <li><a href="catalog.html?type=sewa">Apartemen & Kontrak Sewa</a></li>
+      </ul>
+    </div>
+
+    <!-- Artikel & Edukasi -->
+    <div class="sitemap-card reveal reveal-delay-2">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+        Blog & Media
+      </h3>
+      <ul class="sitemap-links">
+        <li><a href="blog.html">Kabar Berita Terbaru</a></li>
+        <li><a href="blog.html?category=tips">Tips Investasi Properti</a></li>
+        <li><a href="blog.html?category=interior">Inspirasi Desain Rumah</a></li>
+        <li><a href="blog.html?category=legalitas">Panduan Hukum & KPR</a></li>
+      </ul>
+    </div>
+
+    <!-- Dokumen Hukum -->
+    <div class="sitemap-card reveal reveal-delay-3">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Proteksi Hukum
+      </h3>
+      <ul class="sitemap-links">
+        <li><a href="privacy-policy.html">Kebijakan Privasi</a></li>
+        <li><a href="terms-conditions.html">Syarat & Ketentuan</a></li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer style="background: var(--navy-950); padding: 2rem 1.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+  <p style="color: var(--slate-400); font-size: 0.85rem; margin: 0;">© 2026 Zaki Property Group. Seluruh hak cipta dilindungi.</p>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

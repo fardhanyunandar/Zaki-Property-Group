@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <meta name="description" content="Tentang Zaki Property Group — visi, misi, tim profesional, dan testimoni klien puas. 14 tahun membangun kepercayaan di industri properti Indonesia.">
+  <title>Tentang Kami | Zaki Property Group</title>
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .page-header {
+      padding: 140px 1.5rem 5rem;
+      background:
+        linear-gradient(180deg, rgba(5,13,26,0.95) 0%, rgba(15,23,42,0.85) 100%),
+        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=60') center/cover no-repeat;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── Corporate Narrative ─── */
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .narrative-img {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .narrative-img img { width: 100%; height: 100%; object-fit: cover; }
+    .narrative-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5,13,26,0.6) 0%, transparent 50%);
+    }
+    .narrative-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      z-index: 2;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.5rem;
+    }
+    .narrative-badge .big-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold-400);
+      line-height: 1;
+    }
+    .narrative-badge .big-label { font-size: 0.8rem; color: var(--slate-400); margin-top: 2px; }
+    .narrative-text h2 { margin-bottom: 1rem; }
+    .narrative-text p {
+      color: var(--slate-400);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .vm-box {
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+    }
+    .vm-box .vm-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-mono);
+    }
+    .vm-box p { font-size: 0.85rem; color: var(--slate-300); line-height: 1.65; margin: 0; }
+
+    /* ── Milestones ─── */
+    .milestones-bar {
+      background: var(--navy-950);
+      padding: 4rem 1.5rem;
+    }
+    .milestones-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .milestone-item {}
+    .milestone-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold-400);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .milestone-label { font-size: 0.82rem; color: var(--slate-400); }
+
+    /* ── Team ─── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .team-card {
+      background: var(--navy-800);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all var(--transition-base);
+      text-align: center;
+    }
+    .team-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(217,119,6,0.25);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.35);
+    }
+    .team-img-wrap {
+      position: relative;
+      aspect-ratio: 4/3.5;
+      overflow: hidden;
+    }
+    .team-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    .team-card:hover .team-img-wrap img { transform: scale(1.05); }
+    .team-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 1.5rem;
+    }
+    .team-socials { display: flex; gap: 0.5rem; }
+    .team-social-btn {
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 0.7rem;
+      transition: all var(--transition-fast);
+      backdrop-filter: blur(4px);
+    }
+    .team-social-btn:hover { background: var(--gold-700); border-color: var(--gold-700); }
+    .team-body { padding: 1.5rem 1.75rem 2rem; }
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+    .team-role {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      margin-bottom: 0.75rem;
+    }
+    .team-bio { font-size: 0.875rem; color: var(--slate-400); line-height: 1.65; }
+    .team-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; justify-content: center; }
+
+    /* ── Testimonial Slider ─── */
+    .testimonial-section { background: var(--navy-950); }
+    .testi-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .slider-slide {
+      min-width: 100%;
+      padding: 0 2rem;
+    }
+    .testi-card {
+      background: var(--navy-800);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .testi-quote {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--white);
+      line-height: 1.75;
+      font-style: italic;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .testi-quote::before {
+      content: '"';
+      position: absolute;
+      top: -0.5rem;
+      left: 0;
+      font-size: 3rem;
+      color: var(--gold-600);
+      line-height: 1;
+      font-style: normal;
+    }
+    .testi-meta { margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .testi-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--gold-700);
+      flex-shrink: 0;
+    }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-name { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+    .testi-detail { font-size: 0.8rem; color: var(--slate-400); margin-top: 2px; }
+    .testi-property-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .testi-property-img img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-property-label {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--slate-400);
+      text-align: center;
+    }
+    .testi-property-label span { color: var(--gold-500); }
+
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .slider-prev, .slider-next {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .slider-prev:hover, .slider-next:hover {
+      background: var(--gold-700);
+      border-color: var(--gold-700);
+    }
+    .slider-dots { display: flex; gap: 8px; }
+    .slider-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition-fast);
+    }
+    .slider-dot.active {
+      background: var(--gold-500);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* ── Awards ─── */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .award-card {
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+    .award-card:hover {
+      background: rgba(217,119,6,0.05);
+      border-color: rgba(217,119,6,0.15);
+      transform: translateY(-3px);
+    }
+    .award-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .award-card h5 { font-size: 0.9rem; margin-bottom: 0.3rem; font-family: var(--font-body); }
+    .award-card p { font-size: 0.78rem; color: var(--slate-400); }
+
+    @media (max-width: 1024px) {
+      .narrative-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .narrative-img { aspect-ratio: 16/9; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .milestones-inner { grid-template-columns: repeat(3, 1fr); }
+      .awards-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-card { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .milestones-inner { grid-template-columns: repeat(2, 1fr); }
+      .awards-grid { grid-template-columns: 1fr; }
+      .vm-grid { grid-template-columns: 1fr; }
+      .testi-card { padding: 1.5rem; }
+      .testi-quote { font-size: 1rem; }
+      .slider-slide { padding: 0; }
+    }
+      /* Base Style untuk Semua Ikon */
+  .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Efek Ukuran SVG di dalam Lingkaran */
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s ease;
+    z-index: 2;
+  }
+
+  /* Efek Hover Universal (Angkat ke atas + Bayangan bayangan nyata) */
+  .social-icon:hover {
+    transform: translateY(-5px);
+    color: #ffffff;
+  }
+
+  .social-icon:hover svg {
+    transform: scale(1.2);
+  }
+
+  /* --- KUSTOMISASI WARNA REAL BRAND SAAT HOVER --- */
+
+  /* Instagram: Gradien Senja */
+  .social-icon.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0 6px 20px rgba(214, 36, 159, 0.5);
+  }
+
+  /* WhatsApp: Hijau Khas WA */
+  .social-icon.whatsapp:hover {
+    background: #25D366;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="logo-main">Zaki Property Group</span><span class="logo-sub">Building Better Living</span></a>
+    <div class="nav-menu">
+      <a href="index.html"    class="nav-link">Beranda</a>
+      <a href="catalog.html"  class="nav-link">Katalog</a>
+      <a href="services.html" class="nav-link">Layanan</a>
+      <a href="about.html"    class="nav-link active">Tentang</a>
+      <a href="blog.html"     class="nav-link">Blog</a>
+      <a href="contact.html"  class="nav-link">Kontak</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="contact.html" class="btn btn-gold nav-cta"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>Konsultasi Gratis</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" class="nav-link">Beranda</a>
+  <a href="catalog.html" class="nav-link">Katalog</a>
+  <a href="services.html" class="nav-link">Layanan</a>
+  <a href="about.html" class="nav-link active">Tentang</a>
+  <a href="blog.html" class="nav-link">Blog</a>
+  <a href="contact.html" class="nav-link">Kontak</a>
+  <a href="contact.html" class="btn btn-gold">Konsultasi Gratis</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="section-label">Kisah Kami</div>
+    <h1 style="font-size:clamp(2rem,5vw,3.5rem);">Membangun <em style="font-style:italic;color:var(--gold-400);">Kepercayaan</em>,<br>Satu Rumah Setiap Saat</h1>
+    <p style="color:var(--slate-400);max-width:540px;margin-top:0.75rem;font-size:1rem;line-height:1.75;">
+      Selama lebih dari 14 tahun, Zaki Property Group telah menjadi bagian dari perjalanan hidup ribuan keluarga Indonesia — bukan hanya sebagai agen properti, namun sebagai mitra hidup jangka panjang.
+    </p>
+  </div>
+</div>
+
+<!-- MILESTONES BAR -->
+<div class="milestones-bar">
+  <div class="milestones-inner">
+    <div class="milestone-item reveal">
+      <div class="milestone-num">2010</div>
+      <div class="milestone-label">Tahun Berdiri</div>
+    </div>
+    <div class="milestone-item reveal reveal-delay-1">
+      <div class="milestone-num">1.200+</div>
+      <div class="milestone-label">Transaksi Sukses</div>
+    </div>
+    <div class="milestone-item reveal reveal-delay-2">
+      <div class="milestone-num">50+</div>
+      <div class="milestone-label">Profesional Berpengalaman</div>
+    </div>
+    <div class="milestone-item reveal reveal-delay-3">
+      <div class="milestone-num">18</div>
+      <div class="milestone-label">Kota Cakupan</div>
+    </div>
+    <div class="milestone-item reveal reveal-delay-4">
+      <div class="milestone-num">98%</div>
+      <div class="milestone-label">Tingkat Kepuasan Klien</div>
+    </div>
+  </div>
+</div>
+
+<!-- CORPORATE NARRATIVE -->
+<section class="section">
+  <div class="container">
+    <div class="narrative-grid">
+      <div class="narrative-img reveal">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="Kantor Zaki Property Group" loading="lazy">
+        <div class="narrative-badge">
+          <div class="big-num">14+</div>
+          <div class="big-label">Tahun Melayani Indonesia</div>
+        </div>
+      </div>
+      <div class="narrative-text reveal reveal-delay-2">
+        <div class="section-label">Sejarah Kami</div>
+        <h2>Dari Satu Kantor Kecil di Surabaya,<br><em style="font-style:italic;color:var(--gold-400);">Menjadi Pemimpin Pasar</em></h2>
+        <div class="divider"></div>
+        <p>
+          Zaki Property Group lahir pada 2010 dari sebuah kantor sederhana di jantung Kota Surabaya, dengan satu keyakinan sederhana namun kuat: <strong style="color:var(--white);">setiap orang berhak mendapatkan rumah yang layak dengan proses yang jujur.</strong>
+        </p>
+        <p>
+          Didirikan oleh Muhammad Zaki Pratama bersama dua sahabatnya, perusahaan ini memulai perjalanan dengan tiga meja, satu komputer, dan tekad yang tidak tergoyahkan. Di tahun pertama, kami berhasil memfasilitasi 12 transaksi. Tahun ini, angka itu telah berkembang menjadi lebih dari 200 transaksi per tahun.
+        </p>
+        <p>
+          Rahasia pertumbuhan kami bukan pada volume semata, melainkan pada kualitas hubungan. Lebih dari 60% klien kami adalah rujukan dari klien sebelumnya — sebuah bukti nyata bahwa kepercayaan adalah aset terbesar yang kami bangun.
+        </p>
+        <div class="vm-grid">
+          <div class="vm-box">
+            <div class="vm-label">🎯 Visi</div>
+            <p>Menjadi ekosistem properti paling terpercaya di Asia Tenggara yang menempatkan integritas di atas segalanya.</p>
+          </div>
+          <div class="vm-box">
+            <div class="vm-label">🚀 Misi</div>
+            <p>Menghadirkan pengalaman properti yang transparan, efisien, dan menyenangkan bagi setiap klien tanpa terkecuali.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVE TEAM -->
+<section class="section" style="background:var(--navy-950);padding-top:5rem;">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label" style="justify-content:center;">Tim Profesional</div>
+      <h2>Bertemu dengan <em style="font-style:italic;color:var(--gold-400);">Tim Kami</em></h2>
+      <div class="divider" style="margin:1rem auto;"></div>
+      <p style="max-width:480px;margin:0 auto;color:var(--slate-400);">Dikelola oleh para profesional berpengalaman yang berdedikasi untuk memberikan hasil terbaik bagi setiap klien.</p>
+    </div>
+    <div class="team-grid">
+
+      <!-- Team Member 1 -->
+      <div class="team-card reveal">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="Muhammad Zaki Pratama" loading="lazy">
+          <div class="team-overlay">
+            <div class="team-socials">
+              <a href="#" class="team-social-btn" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social-btn" aria-label="Instagram">ig</a>
+              <a href="#" class="team-social-btn" aria-label="Twitter">tw</a>
+            </div>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Muhammad Zaki Pratama</div>
+          <div class="team-role">Founder & Chief Executive Officer</div>
+          <p class="team-bio">Visioner di balik Zaki Property Group dengan pengalaman 18 tahun di industri properti nasional. Lulusan Teknik Sipil ITS dengan MBA dari Prasetiya Mulya. Telah memimpin lebih dari 500 transaksi bernilai total di atas Rp 2 triliun.</p>
+          <div class="team-tags">
+            <span class="tag">Investasi Properti</span>
+            <span class="tag">Strategic Planning</span>
+            <span class="tag">Mentoring</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Dewi Rahayu Santoso" loading="lazy">
+          <div class="team-overlay">
+            <div class="team-socials">
+              <a href="#" class="team-social-btn" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social-btn" aria-label="Instagram">ig</a>
+            </div>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Dewi Rahayu Santoso</div>
+          <div class="team-role">Lead Property Consultant</div>
+          <p class="team-bio">Konsultan properti bersertifikat AREBI dengan spesialisasi residensial premium. Lebih dari 12 tahun mendampingi klien dari berbagai latar belakang menemukan properti impian mereka. Meraih penghargaan "Top Agent of the Year" selama 4 tahun berturut-turut.</p>
+          <div class="team-tags">
+            <span class="tag">Residential Expert</span>
+            <span class="tag">KPR Specialist</span>
+            <span class="tag">Negotiation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80" alt="Arief Budiman" loading="lazy">
+          <div class="team-overlay">
+            <div class="team-socials">
+              <a href="#" class="team-social-btn" aria-label="LinkedIn">in</a>
+              <a href="#" class="team-social-btn" aria-label="Instagram">ig</a>
+              <a href="#" class="team-social-btn" aria-label="Behance">be</a>
+            </div>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Arief Budiman, M.Ars</div>
+          <div class="team-role">Head of Architecture & Interior Design</div>
+          <p class="team-bio">Arsitek senior lulusan Universitas Trisakti dengan Master of Architecture dari Delft University of Technology, Belanda. Memimpin tim desain interior dengan portofolio lebih dari 300 proyek residensial dan komersial premium di 12 kota Indonesia.</p>
+          <div class="team-tags">
+            <span class="tag">Architecture</span>
+            <span class="tag">Interior Design</span>
+            <span class="tag">Sustainable Build</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonial-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-label" style="justify-content:center;">Suara Klien</div>
+      <h2>Mereka yang Telah <em style="font-style:italic;color:var(--gold-400);">Mempercayai</em> Kami</h2>
+      <div class="divider" style="margin:1rem auto;"></div>
+    </div>
+
+    <div class="testi-slider reveal" id="testi-slider">
+      <div class="slider-track">
+
+        <!-- Testimonial 1 -->
+        <div class="slider-slide">
+          <div class="testi-card">
+            <div>
+              <div class="stars" style="margin-bottom:1.5rem;">
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="testi-quote">
+                Saya tidak menyangka proses beli rumah bisa semudah ini. Tim Zaki Property sangat sabar menjelaskan setiap detail dokumen. Dalam 3 minggu, akad KPR selesai dan kunci sudah di tangan saya. Ini pengalaman properti terbaik yang pernah saya rasakan!
+              </p>
+              <div class="testi-meta">
+                <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Budi Santoso"></div>
+                <div>
+                  <div class="testi-name">Budi Santoso</div>
+                  <div class="testi-detail">Manager IT — Membeli Villa Citraland, Surabaya · 2024</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="testi-property-img">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=700&q=80" alt="Properti Budi Santoso" loading="lazy">
+              </div>
+              <div class="testi-property-label">Properti yang dibeli: <span>Villa Modern Citraland · Rp 4,5 M</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="slider-slide">
+          <div class="testi-card">
+            <div>
+              <div class="stars" style="margin-bottom:1.5rem;">
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="testi-quote">
+                Sebagai investor yang memiliki 5 unit properti sewaan, saya benar-benar terbantu dengan layanan manajemen aset mereka. Tingkat hunian saya naik dari 70% menjadi 95% dalam 6 bulan pertama. Laporan keuangan bulanannya sangat rapi dan detail.
+              </p>
+              <div class="testi-meta">
+                <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=100&q=80" alt="Ratna Kusuma Dewi"></div>
+                <div>
+                  <div class="testi-name">Ratna Kusuma Dewi</div>
+                  <div class="testi-detail">Pengusaha — Manajemen Aset 5 Unit · Sejak 2022</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="testi-property-img">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=700&q=80" alt="Properti Ratna" loading="lazy">
+              </div>
+              <div class="testi-property-label">Properti dikelola: <span>5 Unit Apartemen · Surabaya</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="slider-slide">
+          <div class="testi-card">
+            <div>
+              <div class="stars" style="margin-bottom:1.5rem;">
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="testi-quote">
+                Desain interior ruang tamu saya yang awalnya kosong dan membosankan disulap menjadi surga kenyamanan dalam waktu 6 minggu saja. Tim Arief benar-benar memahami visi saya — bahkan lebih dari yang bisa saya gambarkan sendiri!
+              </p>
+              <div class="testi-meta">
+                <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Hendra Wijaya"></div>
+                <div>
+                  <div class="testi-name">Hendra Wijaya</div>
+                  <div class="testi-detail">Dokter Spesialis — Desain Interior Pakuwon · 2024</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="testi-property-img">
+                <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=700&q=80" alt="Interior Hendra" loading="lazy">
+              </div>
+              <div class="testi-property-label">Proyek desain: <span>Interior 180 m² · Pakuwon, Surabaya</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-prev" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="slider-dots"></div>
+        <button class="slider-next" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS & RECOGNITION -->
+<section class="section-sm" style="background:var(--navy-950);">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem;">
+      <div class="section-label" style="justify-content:center;">Penghargaan</div>
+      <h2>Pengakuan <em style="font-style:italic;color:var(--gold-400);">Industri</em></h2>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card reveal"><div class="award-icon">🏆</div><h5>Best Property Agency 2024</h5><p>Penghargaan dari Majalah Property & Beyond Indonesia</p></div>
+      <div class="award-card reveal reveal-delay-1"><div class="award-icon">⭐</div><h5>Top 10 Agent AREBI 2023</h5><p>Peringkat 10 besar broker nasional versi AREBI Pusat</p></div>
+      <div class="award-card reveal reveal-delay-2"><div class="award-icon">🌿</div><h5>Green Building Award</h5><p>Penghargaan untuk komitmen properti ramah lingkungan 2022</p></div>
+      <div class="award-card reveal reveal-delay-3"><div class="award-icon">💎</div><h5>Customer Trust Award 2024</h5><p>Penilaian tertinggi berdasarkan survei kepuasan nasional</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" style="display: inline-block; margin-bottom: 1rem">
+              <div style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white)">Zaki Property Group</div>
+              <div style="font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-500)">Building Better Living</div>
+            </a>
+            <p style="margin-bottom: 1.25rem">Mitra properti terpercaya Anda sejak 2010. Ribuan keluarga Indonesia telah mempercayakan investasi properti mereka kepada kami.</p>
+<div class="footer-socials">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/murphhy__/" target="_blank" rel="noopener noreferrer" class="social-icon instagram" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/6283865260933" target="_blank" rel="noopener noreferrer" class="social-icon whatsapp" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.562l.407.241c1.552.922 3.327 1.411 5.143 1.412 5.514 0 10.015-4.502 10.018-10.02.002-2.673-1.04-5.186-2.936-7.085-1.895-1.898-4.414-2.943-7.092-2.944-5.52 0-10.02 4.503-10.023 10.02-.001 1.867.5 3.687 1.448 5.244l.264.44-.997 3.645 3.73-.978zm11.567-7.9c-.31-.154-1.833-.905-2.115-1.008-.283-.103-.488-.155-.693.155-.204.31-.79.155-.969.36-.179.206-.36.232-.67.077-.31-.154-1.307-.481-2.49-1.535-.919-.82-1.54-1.834-1.722-2.143-.18-.31-.019-.477.136-.631.14-.139.31-.36.465-.54.154-.18.206-.31.31-.515.103-.206.052-.387-.026-.54-.077-.154-.693-1.67-.95-2.288-.25-.6-.505-.519-.693-.529-.179-.008-.385-.01-.59-.01-.206 0-.54.077-.822.387-.282.31-1.077 1.056-1.077 2.574 0 1.519 1.104 2.986 1.258 3.193.154.206 2.174 3.32 5.267 4.653.736.317 1.311.507 1.761.65.74.236 1.413.203 1.945.124.593-.088 1.833-.747 2.09-1.469.257-.721.257-1.339.18-1.469-.077-.13-.282-.206-.592-.36z"/>
+    </svg>
+  </a>
+</div>
+          </div>
+          <div class="footer-col">
+            <h5>Navigasi Cepat</h5>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="catalog.html">Katalog Properti</a></li>
+              <li><a href="services.html">Layanan & Harga</a></li>
+              <li><a href="about.html">Tentang Kami</a></li>
+              <li><a href="blog.html">Artikel & Blog</a></li>
+              <li><a href="contact.html">Hubungi Kami</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Kontak & Legal</h5>
+            
+            <!-- Item Alamat -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Puri Aneka Jaya, Jl. Utama Puri BSI Permai, Rangkapan Jaya, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16435</span>
+            </div>
+
+            <!-- Item Telepon (Sudah Ditambahkan Ikon & Dirapikan) -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>+62 838-6526-0933</span>
+            </div>
+
+            <!-- Item Email (Sudah Dirapikan ke Dalam Tag) -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>zakiharahapm@gmail.com</span>
+            </div>
+
+            <!-- Kotak Lisensi Resmi -->
+            <div style="margin-top: 1.2rem; padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.75rem; color: var(--slate-400); line-height: 1.5;">
+              <div style="color: var(--gold-500); font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px;">Lisensi Resmi</div>
+              <div>AREBI No. 001/JATIM/2023</div>
+              <div style="margin-top: 2px;">NIB: 1234567890123</div>
+            </div>
+          </div>
+        <div class="footer-bottom">
+          <p>© 2026 Zaki Property Group. Seluruh hak cipta dilindungi undang-undang.</p>
+          <div style="display: flex; gap: 1.5rem; font-size: 0.8rem; color: var(--navy-600)">
+            <a href="kebijakanprivasi.html">Kebijakan Privasi</a>
+            <a href="syarat&ketentuan.html">Syarat & Ketentuan</a>
+            <a href="sitemap.html">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<a href="https://wa.me/6283865260933" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+
+<script src="assets/main.js"></script>
+<script>
+  initTestimonialSlider('#testi-slider');
+</script>
+</body>
+</html>

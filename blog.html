@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Artikel & blog Zaki Property Group — tips investasi properti, panduan KPR, legalitas, dan tren hunian terbaik untuk Anda." />
+    <title>Blog | Zaki Property Group</title>
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="assets/style.css" />
+
+    <style>
+      .page-header {
+        padding: 140px 1.5rem 4rem;
+        background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .blog-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .article-card {
+        background: var(--navy-800);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        transition: all var(--transition-base);
+        position: relative;
+      }
+
+      .article-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(217, 119, 6, 0.25);
+        box-shadow: 0 24px 56px rgba(0, 0, 0, 0.35);
+      }
+
+      .article-img {
+        position: relative;
+        aspect-ratio: 16/10;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .article-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-slow);
+      }
+
+      .article-card:hover .article-img img {
+        transform: scale(1.06);
+      }
+
+      .article-tag {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: rgba(5, 13, 26, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--gold-400);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .article-body {
+        padding: 1.4rem 1.5rem 1.6rem;
+      }
+
+      .article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .article-meta .meta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--slate-400);
+        font-size: 0.78rem;
+      }
+
+      .article-title {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        color: var(--white);
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+      }
+
+      .article-excerpt {
+        color: var(--slate-400);
+        font-size: 0.9rem;
+        line-height: 1.75;
+        margin-bottom: 1.15rem;
+        min-height: 72px;
+      }
+
+      .article-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .article-read {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--gold-400);
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition:
+          color var(--transition-fast),
+          transform var(--transition-fast);
+      }
+
+      .article-card:hover .article-read {
+        color: var(--gold-500);
+        transform: translateX(2px);
+      }
+
+      .tag-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: center;
+        margin-bottom: 2.25rem;
+      }
+
+      .filter-chip {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--slate-300);
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        user-select: none;
+      }
+
+      .filter-chip:hover {
+        transform: translateY(-2px);
+        border-color: rgba(217, 119, 6, 0.25);
+        color: var(--white);
+      }
+
+      .filter-chip.active {
+        background: rgba(217, 119, 6, 0.12);
+        border-color: rgba(217, 119, 6, 0.35);
+        color: var(--gold-400);
+      }
+
+      .cta-banner {
+        margin: 0 1.5rem 0.5rem;
+        border-radius: var(--radius-xl);
+        padding: 3.5rem 2.5rem;
+        background: linear-gradient(135deg, rgba(180, 83, 9, 0.35), rgba(15, 23, 42, 0.1));
+        border: 1px solid rgba(217, 119, 6, 0.22);
+      }
+
+      .cta-banner-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .cta-banner h2 {
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+      }
+
+      .cta-banner p {
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 0.6rem;
+        max-width: 560px;
+        line-height: 1.75;
+      }
+
+      @media (max-width: 1024px) {
+        .blog-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page-header {
+          padding: 120px 1.25rem 3rem;
+        }
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+        .cta-banner {
+          padding: 2.5rem 1.5rem;
+          margin: 0;
+          border-radius: 0;
+        }
+      }
+
+      /* Hide/show articles for filtering */
+      .is-hidden {
+        display: none !important;
+      }
+
+        /* Base Style untuk Semua Ikon */
+  .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Efek Ukuran SVG di dalam Lingkaran */
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s ease;
+    z-index: 2;
+  }
+
+  /* Efek Hover Universal (Angkat ke atas + Bayangan bayangan nyata) */
+  .social-icon:hover {
+    transform: translateY(-5px);
+    color: #ffffff;
+  }
+
+  .social-icon:hover svg {
+    transform: scale(1.2);
+  }
+
+  /* --- KUSTOMISASI WARNA REAL BRAND SAAT HOVER --- */
+
+  /* Instagram: Gradien Senja */
+  .social-icon.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0 6px 20px rgba(214, 36, 159, 0.5);
+  }
+
+  /* WhatsApp: Hijau Khas WA */
+  .social-icon.whatsapp:hover {
+    background: #25D366;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-main">Zaki Property Group</span>
+          <span class="logo-sub">Building Better Living</span>
+        </a>
+        <div class="nav-menu">
+          <a href="index.html" class="nav-link">Beranda</a>
+          <a href="catalog.html" class="nav-link">Katalog</a>
+          <a href="services.html" class="nav-link">Layanan</a>
+          <a href="about.html" class="nav-link">Tentang</a>
+          <a href="blog.html" class="nav-link active">Blog</a>
+          <a href="contact.html" class="nav-link">Kontak</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <a href="contact.html" class="btn btn-gold nav-cta">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            Konsultasi Gratis
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html" class="nav-link">Beranda</a>
+      <a href="catalog.html" class="nav-link">Katalog</a>
+      <a href="services.html" class="nav-link">Layanan</a>
+      <a href="about.html" class="nav-link">Tentang</a>
+      <a href="blog.html" class="nav-link active">Blog</a>
+      <a href="contact.html" class="nav-link">Kontak</a>
+      <a href="contact.html" class="btn btn-gold">Konsultasi Gratis</a>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="blog-container">
+        <div class="section-label">Artikel & Inspirasi</div>
+        <h1 style="font-size: clamp(2rem, 5vw, 3.5rem)">Blog <em style="font-style: italic; color: var(--gold-400)">Properti</em> Untuk Anda</h1>
+        <p style="color: var(--slate-400); max-width: 650px; margin-top: 0.75rem">Tips investasi, panduan KPR, legalitas, hingga tren hunian—dirangkum ringkas dan praktis agar Anda bisa mengambil keputusan properti yang lebih cerdas.</p>
+      </div>
+    </div>
+
+    <!-- BLOG CONTENT -->
+    <section class="section" style="padding-top: 4rem">
+      <div class="blog-container">
+        <div class="reveal" style="text-align: center; margin-bottom: 1.5rem">
+          <div class="section-label" style="justify-content: center">Kategori Pilihan</div>
+          <h2>Pilih Topik <em style="font-style: italic; color: var(--gold-400)">Favorit</em></h2>
+          <div class="divider" style="margin: 1rem auto 1.25rem"></div>
+        </div>
+
+        <div class="tag-filters reveal" id="tag-filters">
+          <div class="filter-chip active" data-filter="all">Semua</div>
+          <div class="filter-chip" data-filter="kpr">KPR</div>
+          <div class="filter-chip" data-filter="legal">Legalitas</div>
+          <div class="filter-chip" data-filter="investasi">Investasi</div>
+          <div class="filter-chip" data-filter="tren">Tren Hunian</div>
+        </div>
+
+        <div class="blog-grid" id="articles-grid">
+          <!-- Article 1 -->
+          <article class="article-card reveal" data-category="kpr">
+            <div class="article-img">
+              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80" alt="Panduan KPR" loading="lazy" />
+              <div class="article-tag">KPR</div>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <div class="meta-pill">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M4 11h16M6 21h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  6 menit baca
+                </div>
+                <div class="meta-pill">2026</div>
+              </div>
+              <div class="article-title">Panduan Ringkas Mengajukan KPR Tanpa Drama</div>
+              <div class="article-excerpt">Dari dokumen awal sampai simulasi tenor yang aman—semua langkah dijelaskan dengan bahasa yang mudah dipahami.</div>
+              <div class="article-actions">
+                <a href="article-1.html" class="article-read" aria-label="Baca artikel">Baca Artikel →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="article-card reveal reveal-delay-1" data-category="legal">
+            <div class="article-img">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Legalitas Properti" loading="lazy" />
+              <div class="article-tag">Legalitas</div>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <div class="meta-pill">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2z" />
+                  </svg>
+                  7 menit baca
+                </div>
+                <div class="meta-pill">Checklist</div>
+              </div>
+              <div class="article-title">Checklist Legalitas Sebelum Deal Properti</div>
+              <div class="article-excerpt">Kenali poin penting SHM, IMB/PBG, BPHTB, dan dokumen pendukung agar transaksi Anda lebih aman.</div>
+              <div class="article-actions">
+                <a href="article-2.html" class="article-read" aria-label="Baca artikel">Baca Artikel →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="article-card reveal reveal-delay-2" data-category="investasi">
+            <div class="article-img">
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Investasi Properti" loading="lazy" />
+              <div class="article-tag">Investasi</div>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <div class="meta-pill">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h14l-1.5 7H7L5 6H3" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 21a1 1 0 100-2 1 1 0 000 2zm10 0a1 1 0 100-2 1 1 0 000 2z" />
+                  </svg>
+                  5 menit baca
+                </div>
+                <div class="meta-pill">ROI</div>
+              </div>
+              <div class="article-title">Cara Menghitung ROI Properti Secara Simpel</div>
+              <div class="article-excerpt">Pelajari formula dasar yield, estimasi biaya, dan skenario konservatif untuk keputusan investasi yang lebih tepat.</div>
+              <div class="article-actions">
+                <a href="article-3.html" class="article-read" aria-label="Baca artikel">Baca Artikel →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="article-card reveal reveal-delay-3" data-category="tren">
+            <div class="article-img">
+              <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80" alt="Tren Hunian" loading="lazy" />
+              <div class="article-tag">Tren Hunian</div>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <div class="meta-pill">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2-3-.895-3-2" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8V6m0 10v2" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  6 menit baca
+                </div>
+                <div class="meta-pill">2026</div>
+              </div>
+              <div class="article-title">Tren Hunian 2026: Dari Layout hingga Fasilitas</div>
+              <div class="article-excerpt">Kenali perubahan preferensi penghuni dan faktor yang membuat sebuah hunian lebih bernilai untuk jangka panjang.</div>
+              <div class="article-actions">
+                <a href="article-4.html" class="article-read" aria-label="Baca artikel">Baca Artikel →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article class="article-card reveal" data-category="legal">
+            <div class="article-img">
+              <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1200&q=80" alt="Dokumen Properti" loading="lazy" />
+              <div class="article-tag">Legalitas</div>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <div class="meta-pill">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10v10H7V7z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 7l-2 2v12a2 2 0 002 2h12a2 2 0 002-2V9l-2-2" />
+                  </svg>
+                  8 menit baca
+                </div>
+                <div class="meta-pill">Dokumen</div>
+              </div>
+              <div class="article-title">Sebelum Tanda Tangan: Dokumen yang Wajib Anda Minta</div>
+              <div class="article-excerpt">Daftar dokumen kunci yang perlu dicek agar Anda tidak terjebak transaksi yang kurang jelas.</div>
+              <div class="article-actions">
+                <a href="article-5.html" class="article-read" aria-label="Baca artikel">Baca Artikel →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 6 -->
+          <article class="article-card reveal reveal-delay-2" data-category="kpr">
+            <div class="article-img">
+              <img src="https://images.unsplash.com/photo-1560448204-603d3fc33ddc?auto=format&fit=crop&w=1200&q=80" alt="Simulasi KPR" loading="lazy" />
+              <div class="article-tag">KPR</div>
+            </div>
+            <div class="article-body">
+              <div class="article-meta">
+                <div class="meta-pill">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M4 11h16M6 21h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  5 menit baca
+                </div>
+                <div class="meta-pill">Simulasi</div>
+              </div>
+              <div class="article-title">Simulasi Cicilan: Tenor Ideal yang Nyaman</div>
+              <div class="article-excerpt">Tips menentukan tenor dan DP agar cicilan tetap sehat—tanpa mengorbankan kebutuhan lain.</div>
+              <div class="article-actions">
+                <a href="article-6.html" class="article-read" aria-label="Baca artikel">Baca Artikel →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm" style="padding-top: 0">
+      <div class="cta-banner reveal">
+        <div class="cta-banner-inner">
+          <div>
+            <div class="section-label">Butuh Rekomendasi?</div>
+            <h2>Diskusikan Kebutuhan Properti Anda dengan Konsultan</h2>
+            <p>Ceritakan target, budget, dan preferensi lokasi. Kami bantu arahkan pilihan properti yang relevan dan langkah berikutnya secara jelas.</p>
+          </div>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+            <a href="contact.html" class="btn btn-gold" style="font-size: 0.95rem; padding: 14px 32px"> Konsultasi Sekarang → </a>
+            <a href="catalog.html" class="btn" style="background: rgba(255, 255, 255, 0.15); color: white; border: 1px solid rgba(255, 255, 255, 0.3); font-size: 0.95rem; padding: 14px 32px"> Lihat Katalog </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="index.html" style="display: inline-block; margin-bottom: 1rem">
+              <div style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white)">Zaki Property Group</div>
+              <div style="font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-500)">Building Better Living</div>
+            </a>
+            <p style="margin-bottom: 1.25rem">Mitra properti terpercaya Anda sejak 2010. Ribuan keluarga Indonesia telah mempercayakan investasi properti mereka kepada kami.</p>
+<div class="footer-socials">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/murphhy__/" target="_blank" rel="noopener noreferrer" class="social-icon instagram" aria-label="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/6283865260933" target="_blank" rel="noopener noreferrer" class="social-icon whatsapp" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-3.562l.407.241c1.552.922 3.327 1.411 5.143 1.412 5.514 0 10.015-4.502 10.018-10.02.002-2.673-1.04-5.186-2.936-7.085-1.895-1.898-4.414-2.943-7.092-2.944-5.52 0-10.02 4.503-10.023 10.02-.001 1.867.5 3.687 1.448 5.244l.264.44-.997 3.645 3.73-.978zm11.567-7.9c-.31-.154-1.833-.905-2.115-1.008-.283-.103-.488-.155-.693.155-.204.31-.79.155-.969.36-.179.206-.36.232-.67.077-.31-.154-1.307-.481-2.49-1.535-.919-.82-1.54-1.834-1.722-2.143-.18-.31-.019-.477.136-.631.14-.139.31-.36.465-.54.154-.18.206-.31.31-.515.103-.206.052-.387-.026-.54-.077-.154-.693-1.67-.95-2.288-.25-.6-.505-.519-.693-.529-.179-.008-.385-.01-.59-.01-.206 0-.54.077-.822.387-.282.31-1.077 1.056-1.077 2.574 0 1.519 1.104 2.986 1.258 3.193.154.206 2.174 3.32 5.267 4.653.736.317 1.311.507 1.761.65.74.236 1.413.203 1.945.124.593-.088 1.833-.747 2.09-1.469.257-.721.257-1.339.18-1.469-.077-.13-.282-.206-.592-.36z"/>
+    </svg>
+  </a>
+</div>
+          </div>
+          <div class="footer-col">
+            <h5>Navigasi Cepat</h5>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="catalog.html">Katalog Properti</a></li>
+              <li><a href="services.html">Layanan & Harga</a></li>
+              <li><a href="about.html">Tentang Kami</a></li>
+              <li><a href="blog.html">Artikel & Blog</a></li>
+              <li><a href="contact.html">Hubungi Kami</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Kontak & Legal</h5>
+            
+            <!-- Item Alamat -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Puri Aneka Jaya, Jl. Utama Puri BSI Permai, Rangkapan Jaya, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16435</span>
+            </div>
+
+            <!-- Item Telepon (Sudah Ditambahkan Ikon & Dirapikan) -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span>+62 838-6526-0933</span>
+            </div>
+
+            <!-- Item Email (Sudah Dirapikan ke Dalam Tag) -->
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>zakiharahapm@gmail.com</span>
+            </div>
+
+            <!-- Kotak Lisensi Resmi -->
+            <div style="margin-top: 1.2rem; padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.75rem; color: var(--slate-400); line-height: 1.5;">
+              <div style="color: var(--gold-500); font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px;">Lisensi Resmi</div>
+              <div>AREBI No. 001/JATIM/2023</div>
+              <div style="margin-top: 2px;">NIB: 1234567890123</div>
+            </div>
+          </div>
+        <div class="footer-bottom">
+          <p>© 2026 Zaki Property Group. Seluruh hak cipta dilindungi undang-undang.</p>
+          <div style="display: flex; gap: 1.5rem; font-size: 0.8rem; color: var(--navy-600)">
+            <a href="kebijakanprivasi.html">Kebijakan Privasi</a>
+            <a href="syarat&ketentuan.html">Syarat & Ketentuan</a>
+            <a href="sitemap.html">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <a href="https://wa.me/6283865260933?text=Halo%20Zaki%20Property%20Group" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+        />
+      </svg>
+    </a>
+
+    <script src="assets/main.js"></script>
+
+    <script>
+      (function initBlogFilters() {
+        const chips = document.querySelectorAll("#tag-filters .filter-chip");
+        const articles = document.querySelectorAll("#articles-grid .article-card");
+        if (!chips.length || !articles.length) return;
+
+        function setActive(filter) {
+          chips.forEach((chip) => {
+            const isActive = chip.dataset.filter === filter;
+            chip.classList.toggle("active", isActive);
+          });
+
+          articles.forEach((article) => {
+            const cat = article.dataset.category;
+            const isVisible = filter === "all" || cat === filter;
+            article.classList.toggle("is-hidden", !isVisible);
+          });
+        }
+
+        chips.forEach((chip) => {
+          chip.addEventListener("click", () => setActive(chip.dataset.filter));
+        });
+      })();
+    </script>
+  </body>
+</html>
