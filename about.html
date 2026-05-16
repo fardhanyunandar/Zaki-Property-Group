@@ -486,47 +486,77 @@
     </div>
     <div class="team-grid">
 
-      <!-- Team Member 1 -->
-      <div class="team-card reveal">
-        <div class="team-img-wrap">
-          <img src="zaki.png" alt="Muhammad Zaki Harahap" loading="lazy">
-          <div class="team-overlay">
-            <div class="team-socials">
-              <a href="https://www.instagram.com/murphhy__/" class="team-social-btn" aria-label="Instagram">ig</a>
-            </div>
-          </div>
-        </div>
-        <div class="team-body">
-          <div class="team-name">Muhammad Zaki Harahap</div>
-          <div class="team-role">Founder & Chief Executive Officer</div>
-          <p class="team-bio">Visioner di balik Zaki Property Group dengan pengalaman 18 tahun di industri properti nasional. Lulusan Teknik Sipil ITS dengan MBA dari Prasetiya Mulya. Telah memimpin lebih dari 500 transaksi bernilai total di atas Rp 2 triliun.</p>
-          <div class="team-tags">
-            <span class="tag">Investasi Properti</span>
-            <span class="tag">Strategic Planning</span>
-            <span class="tag">Mentoring</span>
-          </div>
-        </div>
-      </div>
-    </div>
-                      <!-- Member 2 -->
-                <div class="bg-enterprise-900 rounded-2xl overflow-hidden shadow-2xl text-center border border-slate-800/80 p-6 group transition-all duration-300 hover:border-gold/30">
-                    <div class="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-2 border-gold/40 p-1 group-hover:border-gold transition-colors duration-300">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80" alt="Lead Consultant" class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" loading="lazy">
-                    </div>
-                    <h3 class="text-base md:text-lg font-bold text-white">Hana Kamila, S.H.</h3>
-                    <p class="text-gold text-[11px] font-semibold mb-3 uppercase tracking-wider">Lead Property Legal Consultant</p>
-                    <p class="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto">Spesialisasi hukum agraria, menjamin validitas dokumen hukum dan kelancaran AJB klien.</p>
-                </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 py-8">
+    
+    <!-- Member 1: Muhammad Zaki Harahap -->
+    <div class="bg-enterprise-900 rounded-2xl overflow-hidden shadow-2xl text-center border border-slate-800/80 p-6 group transition-all duration-300 hover:border-gold/30 flex flex-col justify-between">
+        <div>
+            <!-- Image Section with Overlay Effect -->
+            <div class="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-2 border-gold/40 p-1 group-hover:border-gold transition-colors duration-300">
+                <img src="zaki.png" alt="Muhammad Zaki Harahap" class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" loading="lazy">
                 
-                <!-- Member 3 -->
-                <div class="bg-enterprise-900 rounded-2xl overflow-hidden shadow-2xl text-center border border-slate-800/80 p-6 group transition-all duration-300 hover:border-gold/30">
-                    <div class="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-2 border-gold/40 p-1 group-hover:border-gold transition-colors duration-300">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=400&q=80" alt="Head Architecture" class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" loading="lazy">
-                    </div>
-                    <h3 class="text-base md:text-lg font-bold text-white">Ar. Baskoro, IAI</h3>
-                    <p class="text-gold text-[11px] font-semibold mb-3 uppercase tracking-wider">Head of Corporate Architecture</p>
-                    <p class="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto">Arsitek berlisensi perancang ratusan unit portofolio rumah mewah berkonsep modern tropis.</p>
+                <!-- Social Media Overlay on Hover -->
+                <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full">
+                    <a href="https://www.instagram.com/murphhy__/" target="_blank" rel="noopener noreferrer" class="bg-gold text-enterprise-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:bg-white transition-colors duration-200" aria-label="Instagram">
+                        IG
+                    </a>
                 </div>
+            </div>
+            
+            <!-- Identity -->
+            <h3 class="text-base md:text-lg font-bold text-white">Muhammad Zaki Harahap</h3>
+            <p class="text-gold text-[11px] font-semibold mb-3 uppercase tracking-wider">Founder & Chief Executive Officer</p>
+            <p class="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto mb-4">
+                Visioner di balik Zaki Property Group dengan pengalaman 18 tahun di industri properti nasional. Lulusan Teknik Sipil ITS & MBA Prasetiya Mulya.
+            </p>
+        </div>
+
+        <!-- Tags (Disesuaikan agar rapi di bagian bawah kartu) -->
+        <div class="flex flex-wrap gap-1 justify-center mt-auto pt-2">
+            <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-0.5 rounded-md border border-slate-700">Investasi Properti</span>
+            <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-0.5 rounded-md border border-slate-700">Strategic Planning</span>
+            <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-0.5 rounded-md border border-slate-700">Mentoring</span>
+        </div>
+    </div>
+
+    <!-- Member 2: Hana Kamila, S.H. -->
+    <div class="bg-enterprise-900 rounded-2xl overflow-hidden shadow-2xl text-center border border-slate-800/80 p-6 group transition-all duration-300 hover:border-gold/30 flex flex-col justify-between">
+        <div>
+            <div class="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-2 border-gold/40 p-1 group-hover:border-gold transition-colors duration-300">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80" alt="Lead Consultant" class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+            <h3 class="text-base md:text-lg font-bold text-white">Hana Kamila, S.H.</h3>
+            <p class="text-gold text-[11px] font-semibold mb-3 uppercase tracking-wider">Lead Property Legal Consultant</p>
+            <p class="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto mb-4">
+                Spesialisasi hukum agraria, menjamin validitas dokumen hukum dan kelancaran AJB klien demi keamanan transaksi aset Anda.
+            </p>
+        </div>
+        <div class="flex flex-wrap gap-1 justify-center mt-auto pt-2">
+            <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-0.5 rounded-md border border-slate-700">Hukum Agraria</span>
+            <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-0.5 rounded-md border border-slate-700">Validasi AJB</span>
+        </div>
+    </div>
+    
+    <!-- Member 3: Ar. Baskoro, IAI -->
+    <div class="bg-enterprise-900 rounded-2xl overflow-hidden shadow-2xl text-center border border-slate-800/80 p-6 group transition-all duration-300 hover:border-gold/30 flex flex-col justify-between">
+        <div>
+            <div class="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-2 border-gold/40 p-1 group-hover:border-gold transition-colors duration-300">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=400&q=80" alt="Head Architecture" class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" loading="lazy">
+            </div>
+            <h3 class="text-base md:text-lg font-bold text-white">Ar. Baskoro, IAI</h3>
+            <p class="text-gold text-[11px] font-semibold mb-3 uppercase tracking-wider">Head of Corporate Architecture</p>
+            <p class="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto mb-4">
+                Arsitek berlisensi perancang ratusan unit portofolio rumah mewah berkonsep modern tropis dengan estetika tinggi.
+            </p>
+        </div>
+        <div class="flex flex-wrap gap-1 justify-center mt-auto pt-2">
+            <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-0.5 rounded-md border border-slate-700">Modern Tropis</span>
+            <span class="bg-slate-800 text-slate-300 text-[10px] px-2 py-0.5 rounded-md border border-slate-700">Luxury Design</span>
+        </div>
+    </div>
+
+</div>
+    </div>
   </div>
 </section>
 
